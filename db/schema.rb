@@ -10,18 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_26_035346) do
-
-  create_table "cards", force: :cascade do |t|
-    t.text "title"
-    t.text "author"
-    t.integer "price"
-    t.text "publisher"
-    t.text "memo"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
-  end
+ActiveRecord::Schema.define(version: 2021_04_29_094836) do
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
