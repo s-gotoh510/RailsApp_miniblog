@@ -1,0 +1,33 @@
+<p>「<%= @nickname %>」さんの投稿一覧</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>タイトル</th>
+      <th>著者</th>
+      <th>作成日</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @cards.each do |card| %>
+    <tr>
+      <td width="35px"><%= card.id %></td>
+      <td width="50%"><%= link_to card.title, card_path(card) %></td>
+      <td><%= card.author %></td>
+      <td><%= card.created_at.strftime('%Y/%m/%d') %></td>
+      <td width="80px"><%= link_to '[編集]', edit_card_path(card) %></td>
+      <td width="80px"><%= link_to '[削除]', card_path(card), method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="mt-4 mb-4">
+  <%= paginate(@cards) %>
+</div>
+
+<div class="mt-4 mb-4">
+  <%= link_to '> トップページに戻る', root_path %>
+</div>

@@ -1,0 +1,58 @@
+<h1 class="display-5 text-secondary">詳細</h1>
+<p>「<%= @card.title %>」の読書データを表示中
+<% if user_signed_in? && current_user.id == @card.user_id %>
+  <span><%= link_to ' [編集]', edit_card_path %></span></p>
+<% end %>
+
+<table class="table">
+  <tbody>
+    <tr>
+      <th width="200">ID</th>
+      <td><%= @card.id %></td>
+    </tr>
+    
+    <tr>
+      <th>タイトル</th>
+      <td><%= @card.title %></td>
+    </tr>
+    <tr>
+      <th>著者</th>
+      <td><%= @card.author %></td>
+    </tr>
+    
+    <tr>
+      <th>価格</th>
+      <td><%= @card.price %></td>
+    </tr>
+    
+    <tr>
+      <th>出版社</th>
+      <td><%= @card.publisher %></td>
+    </tr>
+    
+    <tr>
+      <th>作成日</th>
+      <td><%= @card.created_at.strftime('%Y/%m/%d') %></td>
+    </tr>
+    
+    <tr>
+      <th>カード作成者</th>
+      <td><%= @card.user.nickname %></td>
+    </tr>
+    
+    <tr>
+      <th>コメント</th>
+      <td><%= @card.memo %></td>
+    </tr>
+  </tbody>
+</table>
+
+  <div class="mt-4 mb-4">
+    <% if user_signed_in? && current_user.id == @card.user_id %>
+      <a href="/users/<%= current_user.id %>">> マイページへ</a>
+    <% end %>
+  </div>
+  
+  <div class="mt-4 mb-4">
+    <%= link_to '> トップページに戻る', root_path %>
+  </div>
