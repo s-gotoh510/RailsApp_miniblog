@@ -3,20 +3,21 @@ class BlogconfigsController < ApplicationController
   
   def index
     @blogconfig = Blogconfig.find(1)
+    # @blogconfig = Blogconfig.find(params[:id])
   end
 
   def edit
     @blogconfig = Blogconfig.find(1)
+    # @blogconfig = Blogconfig.find(params[:id])
     
     if request.patch? then
-      @blogconfig.update(blogcofig_params)
-      redirect_to '/blogconfigs'
-      # redirect_to blogconfigs_index_path
+      @blogconfig.update(blogconfig_params)
+      redirect_to '/blogconfigs', notice: 'Success!'
     end
   end
   
   private
-  def blogconig_params
+  def blogconfig_params
     params.require(:blogconfig).permit(:title, :subtitle, :stylename)
   end
 end

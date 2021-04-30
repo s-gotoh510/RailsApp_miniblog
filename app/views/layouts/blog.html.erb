@@ -14,6 +14,18 @@
   </head>
 
   <body class="container">
+    <% if flash[:notice] %>
+      <% str = flash[:notice] %>
+      <% flash[:notice] = nil %>
+      <p class="text-success"><%= str %></p>
+    <% end %>
+    
+    <% if flash[:alert] %>
+      <% str = flash[:alert] %>
+      <% flash[:alert] = nil %>
+      <p class="text-danger"><%= str %></p>
+    <% end %>
+    
     <%= yield %>
     <div class="mt-5 text-center small text-scondary border-top border-scondary">Copyright My Blog 2021.</div>
   </body>

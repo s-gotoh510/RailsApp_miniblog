@@ -1,2 +1,23 @@
-<h1>Bloggenres#new</h1>
-<p>Find me in app/views/bloggenres/new.html.erb</p>
+<h1 class="display-4 text-primary">Bloggenres#new</h1>
+<p>※ジャンル・データの作成</p>
+
+<% if @bloggenre.errors.any? %>
+  <ul>
+    <% @bloggenre.errors.full_messages.each do |err| %>
+      <li><%= err %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @bloggenre, url: bloggenres_index_path, local: true do |f| %>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  
+  <div class="form-group">
+    <label for="title">Memo</label>
+    <%= f.text_field :memo, class: 'form-control' %>
+  </div>
+  <%= f.submit '作成'%>
+<% end %>

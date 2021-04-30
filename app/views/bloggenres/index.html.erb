@@ -1,2 +1,24 @@
-<h1>Bloggenres#index</h1>
-<p>Find me in app/views/bloggenres/index.html.erb</p>
+<h1 class="display-4 text-primary">Bloggenres#index</h1>
+<p>※ジャンル・データの一覧</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>name</th>
+      <th>memo</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= @bloggenres.each do |bloggenre| %>
+      <tr>
+        <td><%= bloggenre.id %></td>
+        <td><%= bloggenre.name %></td>
+        <td><%= bloggenre.memo %></td>
+        <td><%= link_to 'Edit',  bloggenres_edit_path(bloggenre) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<p><%= link_to '新規作成 >>', bloggenres_new_path %></p>

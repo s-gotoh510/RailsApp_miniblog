@@ -9,20 +9,21 @@
   </ul>
 <% end %>
 
-<%= form_with model: @blogconfig, url: blogconfigs_edit_path, local: true do |f| %>
+<%= form_with model: @blogconfig, url: blogconfigs_edit_path, method: :patch, local: true do |f| %>
   <div class="form-group">
     <label for="title">Title</label>
     <%= f.text_field :title, class: 'form-control' %>
   </div>
   
   <div class="form-group">
-    <label for="title">Sub Title</label>
+    <label for="subtitle">Sub Title</label>
     <%= f.text_field :subtitle, class: 'form-control' %>
   </div>
   
   <div class="form-group">
-    <label for="title">Style Name</label>
+    <label for="stylename">Style Name</label>
     <%= f.text_field :stylename, class: 'form-control' %>
   </div>
   <%= f.submit '更新'%>
 <% end %>
+<p class="mt-4 mb-4"><%= link_to '> 戻る', blogconfigs_path %></p>
