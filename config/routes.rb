@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
+  # root 'blogconfigs#index'
   
-  devise_for :users
-  
-  resources :users, only: [:show] #users_controllerに対してのresourcesメソッド
+  get 'blogposts/index'
+  get 'blogposts/new'
+  get 'blogposts/edit'
+  get 'blogposts/delete'
+  get 'bloggenres/index'
+  get 'bloggenres/new'
+  get 'bloggenres/edit'
+  get 'blogconfigs/index'
+  get 'blogconfigs/edit'
 end
