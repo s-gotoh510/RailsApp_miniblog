@@ -12,7 +12,7 @@ class BlogconfigsController < ApplicationController
     
     if request.patch? then
       @blogconfig.update(blogconfig_params)
-      redirect_to '/blogconfigs', notice: 'Success!'
+      redirect_to '/blogconfigs', notice: '更新が完了しました!'
     end
   end
   

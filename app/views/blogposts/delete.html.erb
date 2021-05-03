@@ -1,2 +1,28 @@
-<h1>Blogposts#delete</h1>
-<p>Find me in app/views/blogposts/delete.html.erb</p>
+<h1  class="display-4 text-primary">Blogposts#delete</h1>
+<p>※以下を削除してもいいですか？</p>
+
+<table class="table">
+  <tbody>
+    <tr>
+      <th>Id</th>
+      <td><%= @blogpost.id %></td>
+    </tr>
+    <tr>
+      <th>Title</th>
+      <td><%= @blogpost.title %></td>
+    </tr>
+    <tr>
+      <th>Lead</th>
+      <td><%= @blogpost.lead %></td>
+    </tr>
+    <tr>
+      <th>Content</th>
+      <td><%= @blogpost.content %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= form_with model: @blogpost, url: "/blogposts/#{@blogpost.id}/delete", method: :post,  local: true do |f| %>
+  <%= f.submit '削除', data: { confirm: '本当に削除しますか？' } %>
+<% end %>
+<p class="mt-4 mb-4"><%= link_to '> 戻る', blogposts_path %></p>

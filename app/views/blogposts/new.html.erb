@@ -1,2 +1,52 @@
-<h1>Blogposts#new</h1>
-<p>Find me in app/views/blogposts/new.html.erb</p>
+<h1 class="display-4 text-primary">Blogposts#new</h1>
+<p>※ブログの記事の投稿</p>
+
+<% if @blogpost.errors.any? %>
+  <ul>
+    <% @blogpost.errors.full_messages.each do |err| %>
+      <li><%= err %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @blogpost, url: blogposts_new_path(@blogpost), method: :post, local: true do |f| %>
+  <div class="form-group">
+    <label for="title">Title</label>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+  
+  <div class="form-group">
+    <label for="lead">Lead</label>
+    <%= f.text_field :lead, class: 'form-control' %>
+  </div>
+  
+  <div class="form-group">
+    <label for="content">Content</label>
+    <%= f.rich_text_area :content %>
+  </div>
+  
+  <div class="form-group">
+    <label for="bloggenre_id">Genre ID</label>
+    <%= f.text_field :bloggenre_id, class: 'form-control' %>
+  </div>
+  <%= f.submit '作成'%>
+<% end %>
+
+<h5 class="mt-4">※ジャンルの一覧</h5>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Genre</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bloggenres.each do |bloggenre| %>
+      <tr>
+        <td><%= bloggenre.id %></td>
+        <td><%= bloggenre.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<p class="mt-4 mb-4"><%= link_to '> 戻る', blogposts_path %></p>

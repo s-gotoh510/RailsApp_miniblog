@@ -11,12 +11,13 @@
     </tr>
   </thead>
   <tbody>
-    <%= @bloggenres.each do |bloggenre| %>
+    <% @bloggenres.each do |bloggenre| %>
       <tr>
         <td><%= bloggenre.id %></td>
         <td><%= bloggenre.name %></td>
         <td><%= bloggenre.memo %></td>
-        <td><%= link_to 'Edit',  bloggenres_edit_path(bloggenre) %></td>
+        <!--<td><#%= link_to 'Edit',  bloggenres_new_path(bloggenre) %></td>-->
+        <td><a href="/bloggenres/<%= bloggenre.id %>/edit">Edit</a></td>
       </tr>
     <% end %>
   </tbody>

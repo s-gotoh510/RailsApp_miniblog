@@ -10,7 +10,7 @@ class BlogpostsController < ApplicationController
     @bloggenres = Bloggenre.all
     
     if request.post? then
-      @blogpost.create(blogpost_params)
+      @blogpost = Blogpost.create(blogpost_params)
       redirect_to '/blogposts'
     end
   end
