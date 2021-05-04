@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # root 'blogs#index'
+  root 'blogconfigs#index'
   get 'blogs', to: 'blogs#index'
   get 'blogs/index'
   get 'blogs/:id/genre', to: 'blogs#genre'

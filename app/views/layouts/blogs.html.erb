@@ -18,15 +18,17 @@
     </header>
     <hr>
     
-    <div id="side">
-      <% Bloggenre.all.each do |bloggenre| %>
-        <p><a href="/blogs/<%= bloggenre.id %>/genre"><%= bloggenre.name %></a></p>
-      <% end %>
+    <div class="clearfix">
+      <div id="side">
+        <% Bloggenre.all.each do |bloggenre| %>
+          <p><a href="/blogs/<%= bloggenre.id %>/genre"><%= bloggenre.name %></a></p>
+        <% end %>
+      </div>
+      
+      <main id ="main">
+        <%= yield %>
+      </main>
     </div>
-    
-    <main id ="main">
-      <%= yield %>
-    </main>
     
     <div class="mt-5 text-center small text-scondary border-top border-scondary">Copyright My Blog 2021.</div>
     

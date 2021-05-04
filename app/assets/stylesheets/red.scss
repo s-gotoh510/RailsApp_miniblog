@@ -3,12 +3,19 @@ body {
   color: #aa0000; font-size: 14pt; 
   margin: 10px 20px;
 }
-#header {}
+// #header {}
 #main {
   width: 75%; float: left;
 }
 #side {
   width: 20%; float: right;
+}
+.clearfix {
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
 }
 
 a {
