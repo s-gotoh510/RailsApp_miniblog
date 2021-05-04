@@ -1,4 +1,5 @@
 <h1 class="display-4 text-primary">Blogposts#index</h1>
+<span><%= link_to '[サイトを表示]',  blogs_path %></span>
 <p>※投稿記事の一覧</p>
 
 <table class="table">
@@ -7,7 +8,7 @@
       <th>Id</th>
       <th>title</th>
       <th>lead</th>
-      <th>genre</th>
+      <th><%= link_to 'genre', bloggenres_path %></th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -27,3 +28,4 @@
   </tbody>
 </table>
 <p><%= link_to '新規作成 >>',  blogposts_new_path %></p>
+<p><%= link_to '管理画面へ >>',  blogconfigs_path %></p>

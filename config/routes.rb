@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  root 'blogs#index'
+  # root 'blogs#index'
+  get 'blogs', to: 'blogs#index'
   get 'blogs/index'
-  get 'blogs/genre'
-  get 'blogs/show'
+  get 'blogs/:id/genre', to: 'blogs#genre'
+  get 'blogs/:id/show', to: 'blogs#show'
   
   get 'blogposts', to: 'blogposts#index'
   get 'blogposts/index'
